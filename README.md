@@ -26,4 +26,12 @@ Purpose               0
 首先观察用户性别信息，男女客户比约为2:1
 ![alt text](Sex.png 'Optional Title')
 
+接下来看看用户年龄分布图，数据呈现向左倾斜趋势，用户群体多为20-35岁人群
+![alt text](Age.jpg 'Optional Title')
+
+查看用户存款大致信息,绝大多数用户只有少部分存款
+![alt text](Savings.jpg 'Optional Title')
+
+我们接下来分析存款与性别的分布关系,男女不同存款的分布数量大致也为2:1，考虑到数据中的男女比例2:1，可以初步推测性别并不是影响存款数量的重要变量
+![alt text](Savings VS Sex.jpg 'Optional Title')
 
