@@ -23,5 +23,5 @@ Purpose               0
 
 在Saving accounts和Checking accounts中均有数据缺失，可能是用户并没有创建这两个相关的账户导致数据缺失
 ```
-
+首先观察用户性别信息，男女客户比约为2:1
 ![alt text](image.png 'Optional Title')
