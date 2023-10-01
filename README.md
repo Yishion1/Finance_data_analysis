@@ -24,4 +24,4 @@ Purpose               0
 在Saving accounts和Checking accounts中均有数据缺失，可能是用户并没有创建这两个相关的账户导致数据缺失
 
 
-![alt text](./image.png 'Optional Title')
+![alt text](main/image.png 'Optional Title')
