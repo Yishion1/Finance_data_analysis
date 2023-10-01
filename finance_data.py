@@ -2,9 +2,13 @@ import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.pyplot as plt
+import warnings
+from sklearn.preprocessing import StandardScaler 
+from sklearn.cluster import KMeans, AffinityPropagation
 pd.set_option('display.max_columns',None)
 df=pd.read_csv("german_credit_data.csv")
-#print(df.head)
+print(df.head)
 df.drop(df.columns[0], inplace=True, axis=1)
 
 print("Missing values in each column:\n{}".format(df.isnull().sum()))
@@ -33,4 +37,26 @@ sns.countplot(x=df['Sex'],hue=df['Saving accounts'],palette='summer',linewidth=3
 plt.title('Saving accounts')
 plt.show()
 
-#
+
+sns.scatterplot(data=df,x='Credit amount',y='Duration',hue='Sex',palette="Set1")
+plt.title('Saving accounts')
+plt.show()
+
+sns.scatterplot(data=df,x="Age",y="Credit amount", hue='Sex',palette=None )
+plt.title('Credit VS Age')
+plt.show()
+
+import scipy.stats as stats
+# 创建jointplot
+r1 = sns.jointplot(x="Credit amount", y="Duration", data=df, kind="reg", height=8)
+
+# 计算皮尔逊相关系数和p值
+pearsonr, pvalue = stats.pearsonr(df["Credit amount"], df["Duration"])
+
+# 在图上注解皮尔逊相关系数和p值
+r1.ax_joint.text(0.05, 0.95, f'Pearsonr = {pearsonr:.2f}\np-value = {pvalue:.3f}', 
+                 transform=r1.ax_joint.transAxes, 
+                 verticalalignment='top', 
+                 bbox=dict(boxstyle='round, pad=0.5', edgecolor='gray', facecolor='none'))
+
+plt.show()
