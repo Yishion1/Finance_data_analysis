@@ -33,5 +33,5 @@ Purpose               0
 ![alt text](Savings.jpg 'Optional Title')
 
 我们接下来分析存款与性别的分布关系,男女不同存款的分布数量大致也为2:1，考虑到数据中的男女比例2:1，可以初步推测性别并不是影响存款数量的重要变量
-![alt text](Saving VS Sex.jpg 'Optional Title')
+![alt text](Saving_VS_Sex.jpg)
 
