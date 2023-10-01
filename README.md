@@ -4,6 +4,7 @@
 
 本项目是基于python的pandas和seaborn包完成数据可视化和数据分析工作
 
+## 分析报告
 ```python
 print("Missing values in each column:\n{}".format(df.isnull().sum()))
 
