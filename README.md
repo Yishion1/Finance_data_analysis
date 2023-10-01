@@ -23,5 +23,5 @@ Purpose               0
 
 在Saving accounts和Checking accounts中均有数据缺失，可能是用户并没有创建这两个相关的账户导致数据缺失
 
-![image](https://github.com/Yishion1/Finance_data_analysis/assets/66151793/503e5b26-3cb9-432f-abca-8e07dba85cbc)
+
 ![alt text](image.png 'Optional Title')
