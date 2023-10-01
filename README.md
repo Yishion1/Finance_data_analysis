@@ -36,5 +36,4 @@ Purpose               0
 ![alt text](Saving%20VS%20Sex.jpg)
 
 建立用户账户总额与存款时间的散点图，并以性别作区分，我们观察到与之前相似的关系，性别差异并不会导致账户总额与存款时间关系有太大变化
-
-
+![alt text](Saving_accounts_scatter.png)
