@@ -54,7 +54,7 @@ r1 = sns.jointplot(x="Credit amount", y="Duration", data=df, kind="reg", height=
 pearsonr, pvalue = stats.pearsonr(df["Credit amount"], df["Duration"])
 
 # 在图上注解皮尔逊相关系数和p值
-r1.ax_joint.text(0.05, 0.95, f'Pearsonr = {pearsonr:.2f}\np-value = {pvalue:.3f}', 
+r1.ax_joint.text(0.05, 0.95, f'Pearsonr = {pearsonr:.2f}\np-value = {pvalue:.2e}', 
                  transform=r1.ax_joint.transAxes, 
                  verticalalignment='top', 
                  bbox=dict(boxstyle='round, pad=0.5', edgecolor='gray', facecolor='none'))
