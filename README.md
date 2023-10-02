@@ -4,7 +4,7 @@
 
 本项目是基于python的pandas和seaborn包完成数据可视化和数据分析工作，数据来源为German Credit Risk Data Set
 
-## 分析报告
+## 初步分析
 ```python
 print("Missing values in each column:\n{}".format(df.isnull().sum()))
 
