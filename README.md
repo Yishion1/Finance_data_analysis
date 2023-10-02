@@ -2,7 +2,7 @@
 
 ## 简介
 
-本项目是基于python的pandas和seaborn包完成数据可视化和数据分析工作
+本项目是基于python的pandas和seaborn包完成数据可视化和数据分析工作，数据来源为German Credit Risk Data Set([Link Text]([URL](https://www.kaggle.com/datasets/uciml/german-credit)))
 
 ## 分析报告
 ```python
