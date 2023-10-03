@@ -1,3 +1,4 @@
+
 import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file
 import matplotlib.pyplot as plt
@@ -60,3 +61,24 @@ r1.ax_joint.text(0.05, 0.95, f'Pearsonr = {pearsonr:.2f}\np-value = {pvalue:.2e}
                  bbox=dict(boxstyle='round, pad=0.5', edgecolor='gray', facecolor='none'))
 
 plt.show()
+
+#统计信用卡开卡的不同目的计数
+n_credits = df.groupby("Purpose")["Housing"].count().rename("Count").reset_index()
+print(n_credits)
+n_credits.sort_values(by=["Count"], ascending=False, inplace=True)
+plt.figure(figsize=(10,6))
+bar = sns.barplot(x="Purpose",y="Count",data=n_credits)
+bar.set_xticklabels(bar.get_xticklabels(), rotation=60)
+plt.ylabel("Number of granted credits")
+plt.tight_layout()
+
+
+#利用boxplot分析男女性别差异对于在不同变量关系之间否存在显著差异
+def boxes(x,y,h,r=45):
+    fig, ax = plt.subplots(figsize=(10,6))
+    box = sns.boxplot(x=x,y=y, hue=h, data=df)
+    box.set_xticklabels(box.get_xticklabels(), rotation=r)
+    fig.subplots_adjust(bottom=0.2)
+    plt.tight_layout()
+boxes("Purpose","Credit amount","Sex")
+boxes("Purpose","Duration","Sex")
