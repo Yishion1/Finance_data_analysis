@@ -32,6 +32,9 @@ Purpose               0
 查看用户存款大致信息,绝大多数用户只有少部分存款
 ![alt text](Savings.jpg 'Optional Title')
 
+在用户开卡目的柱状图中，可以看到大部分用户开卡目的都是与车，广播电视相关
+![alt text](Purpose_VS_Credits.png 'Optional Title')
+
 我们接下来分析存款与性别的分布关系,男女不同存款的分布数量大致也为2:1，考虑到数据中的男女比例2:1，可以初步推测性别并不是影响存款数量的重要变量
 ![alt text](Saving%20VS%20Sex.jpg)
 
@@ -44,3 +47,12 @@ Purpose               0
 
 下图展示了Credit amount和Duration的线性关系，皮尔斯系数为0.62，p-value非常的小，因此我们拒绝原假设的风险非常的小，所有判断两变量之间存在线性关系。其实这个结论也是十分合理的，因为往往大额存款都会选择更长的存款时间以获得更高的利润。
 ![alt text](linear_credit_duration.jpg)
+
+
+
+最大的金额是用于度假/其他，最小的是用于家用电器。它们中的大多数在Box的上侧有离群值（更高的金额）。在大多数情况下，男性和女性之间没有差异，除了度假/其他类别。但在度假/其他类别这一类别中授予的贷款数量非常少。
+![alt text](Box_purpose_credit.png)
+![alt text](n_credits.png)
+
+
+
