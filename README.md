@@ -82,7 +82,21 @@ scaler = StandardScaler()
 cluster_scaled = scaler.fit_transform(cluster_log)
 ```
 
-通过观察不同随机种子，生成的聚合点以及其对应的轮廓系数（内聚度/分离度），K=2或者3时，轮廓系数最高。并且随着随机种子改变，他们的轮廓系数非常稳定，几乎没有变化。
+通过观察不同随机种子，生成的聚合点以及其对应的轮廓系数（内聚度/分离度），K=2或者3时，轮廓系数最高。并且随着随机种子改变，他们的轮廓系数非常稳定，几乎没有变化。接下来的分析就选取K=3进行分析。
 ![alt text](Heat_map_cluster.png)
 
 
+
+选择随机种子210，cluster=3，打印出我们的聚类
+这三类的特征大致如下：
+Cluster0：年轻，存款少，周期短
+Cluster1：年龄大，存款少，周期短
+Clusert2：年龄中等，存款多，周期长
+```python
+kmeans_sel = KMeans(n_clusters=3, random_state=210).fit(cluster_scaled)
+labels = pd.DataFrame(kmeans_sel.labels_)
+clustered_data = cluster_data.assign(Cluster=labels)
+grouped_km = clustered_data.groupby(['Cluster']).mean().round(1)
+print(grouped_km)
+```
+![alt text](Cluster.png)
