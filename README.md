@@ -76,5 +76,13 @@ distributions(cluster_log)
 log转换后数据明显更加呈现一个正态分布的样式，这样比较符合预期，因为许多统计方法和算法都基于数据的正态分布假设。通过对数据进行对数转换或其他方式的转换，可以使数据更接近正态分布，从而满足这些算法的假设，这里也包括Kmeans算法。
 ![alt text](Histogram2.png)
 
+接下来需要去寻找一个合适的聚类数目K的值了，首先需要对Age,Credit Amount ,Duration进行归一化处理，使得scale尺度一样
+```python
+scaler = StandardScaler()
+cluster_scaled = scaler.fit_transform(cluster_log)
+```
+
+通过观察不同随机种子，生成的聚合点以及其对应的轮廓系数（内聚度/分离度），K=2或者3时，轮廓系数最高。并且随着随机种子改变，他们的轮廓系数非常稳定，几乎没有变化。
+![alt text](Heat_map_cluster.png)
 
 
