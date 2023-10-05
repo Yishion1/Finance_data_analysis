@@ -90,11 +90,11 @@ cluster_scaled = scaler.fit_transform(cluster_log)
 选择随机种子210，cluster=3，打印出我们的聚类
 这三类的特征大致如下：
 
-Cluster0：年轻，存款少，周期短
+Cluster0：年轻，信用贷款少，周期短
 
-Cluster1：年龄大，存款少，周期短
+Cluster1：年龄大，信用贷款少，周期短
 
-Clusert2：年龄中等，存款多，周期长
+Clusert2：年龄中等，信用贷款多，周期长
 
 ```python
 kmeans_sel = KMeans(n_clusters=3, random_state=210).fit(cluster_scaled)
@@ -104,3 +104,5 @@ grouped_km = clustered_data.groupby(['Cluster']).mean().round(1)
 print(grouped_km)
 ```
 ![alt text](Cluster.png)
+
+因而我们的用户肖像便可以根据这三个聚类分析得出了。
