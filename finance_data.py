@@ -82,3 +82,49 @@ def boxes(x,y,h,r=45):
     plt.tight_layout()
 boxes("Purpose","Credit amount","Sex")
 boxes("Purpose","Duration","Sex")
+
+
+
+
+#选择Age,Credit Amount ,Duration 进行聚类分析
+cluster_data = df.loc[:,["Age","Credit amount", "Duration"]]
+
+#观察数据分布情况
+def distributions(df):
+    fig, (ax1, ax2, ax3) = plt.subplots(3,1, figsize=(8,8))
+    sns.distplot(df["Age"], ax=ax1)
+    sns.distplot(df["Credit amount"], ax=ax2)
+    sns.distplot(df["Duration"], ax=ax3)
+    plt.tight_layout()
+distributions(cluster_data)
+
+cluster_log = np.log(cluster_data)
+distributions(cluster_log)
+
+##寻找合适K值
+#标准化距离
+scaler = StandardScaler()
+cluster_scaled = scaler.fit_transform(cluster_log)
+from sklearn.metrics import silhouette_samples, silhouette_score
+
+clusters_range = range(2,15)
+random_range = range(210,220)
+results =[]
+for c in clusters_range:
+    for r in random_range:
+        clusterer = KMeans(n_clusters=c, random_state=r)
+        cluster_labels = clusterer.fit_predict(cluster_scaled)
+        silhouette_avg = silhouette_score(cluster_scaled, cluster_labels)
+        results.append([c,r,silhouette_avg])
+result = pd.DataFrame(results, columns=["n_clusters","seed","silhouette_score"])
+pivot_km = pd.pivot_table(result, index="n_clusters", columns="seed",values="silhouette_score")
+plt.figure(figsize=(15,6))
+sns.heatmap(pivot_km, annot=True, linewidths=.5, fmt='.3f', cmap=sns.cm.rocket_r)
+plt.tight_layout()
+
+#选取k=3
+kmeans_sel = KMeans(n_clusters=3, random_state=210).fit(cluster_scaled)
+labels = pd.DataFrame(kmeans_sel.labels_)
+clustered_data = cluster_data.assign(Cluster=labels)
+grouped_km = clustered_data.groupby(['Cluster']).mean().round(1)
+print(grouped_km)
